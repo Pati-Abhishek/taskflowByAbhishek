@@ -1,0 +1,115 @@
+<main class="app-container">
+  <header class="header">
+    <h1>TaskFlow</h1>
+    <p class="subtitle">Stay organized and get things done.</p>
+  </header>
+
+  <section class="card input-card">
+    <form (ngSubmit)="addTask()" class="task-form">
+      <div class="form-row">
+        <input 
+          type="text" 
+          placeholder="What needs to be done?" 
+          [(ngModel)]="newTaskTitle" 
+          name="taskTitle"
+          required 
+          class="text-input"
+        />
+      </div>
+
+      <div class="form-meta-row">
+        <div class="control-group">
+          <label for="priority">Priority</label>
+          <select id="priority" [(ngModel)]="newTaskPriority" name="taskPriority" class="select-input">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="dueDate">Due Date</label>
+          <input 
+            type="date" 
+            id="dueDate" 
+            [(ngModel)]="newTaskDueDate" 
+            name="taskDueDate" 
+            class="date-input"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!newTaskTitle.trim()">
+          Add Task
+        </button>
+      </div>
+    </form>
+  </section>
+
+  <div class="toolbar">
+    <span class="status-counter">
+      <strong>{{ remainingCount }}</strong> tasks remaining
+    </span>
+
+    <div class="filter-tabs">
+      <button 
+        type="button" 
+        [class.active]="currentFilter === 'all'" 
+        (click)="setFilter('all')">
+        All
+      </button>
+      <button 
+        type="button" 
+        [class.active]="currentFilter === 'active'" 
+        (click)="setFilter('active')">
+        Active
+      </button>
+      <button 
+        type="button" 
+        [class.active]="currentFilter === 'completed'" 
+        (click)="setFilter('completed')">
+        Completed
+      </button>
+    </div>
+  </div>
+
+  <section class="task-list">
+    <div *ngIf="filteredTasks.length === 0" class="empty-state">
+      No tasks found in this view.
+    </div>
+
+    <article 
+      *ngFor="let task of filteredTasks" 
+      class="task-item" 
+      [class.completed]="task.completed"
+    >
+      <label class="checkbox-container">
+        <input 
+          type="checkbox" 
+          [checked]="task.completed" 
+          (change)="toggleComplete(task)"
+        />
+        <span class="checkmark"></span>
+      </label>
+
+      <div class="task-content">
+        <span class="task-title">{{ task.title }}</span>
+        <div class="task-details">
+          <span class="badge" [ngClass]="'badge-' + task.priority">
+            {{ task.priority }}
+          </span>
+          <span *ngIf="task.dueDate" class="due-date">
+            📅 {{ task.dueDate }}
+          </span>
+        </div>
+      </div>
+
+      <button 
+        type="button" 
+        class="delete-btn" 
+        (click)="deleteTask(task.id)" 
+        aria-label="Delete task">
+        &times;
+      </button>
+    </article>
+  </section>
+</main>
