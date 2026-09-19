@@ -1,59 +1,129 @@
-# Taskflow
+# TaskFlow
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8.
+A modern, responsive, and lightweight task management application built with **Angular**, **TypeScript**, and modern CSS. TaskFlow helps users organize their daily workflow with intuitive categorization, priority indicators, due date tracking, and client-side data persistence.
 
-## Development server
+---
 
-To start a local development server, run:
+## Features
 
-```bash
-ng serve
+- **Full Task Lifecycle (CRUD):** Easily create, view, complete, and delete tasks.
+- **Priority Management:** Categorize tasks into **Low**, **Medium**, and **High** priority levels with distinct color-coded badges.
+- **Due Date Scheduling:** Set deadlines for tasks to keep track of upcoming deliverables.
+- **Dynamic Filtering:** Filter tasks instantly across **All**, **Active**, and **Completed** states.
+- **Local Persistence:** Retains task state seamlessly across browser sessions using `localStorage`.
+- **Responsive UI:** Clean, mobile-friendly interface designed with accessibility and performance in mind.
+- **Standalone Architecture:** Powered by modern Angular standalone components for lean and modular architecture.
+
+---
+
+## Tech Stack
+
+- **Framework:** [Angular](https://angular.dev/) (Standalone Components)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** Modern CSS (Flexbox / CSS Grid, CSS Variables)
+- **Build Tool:** Angular CLI / Vite
+- **Storage:** Browser `localStorage` API
+
+---
+
+## Getting Started
+
+Follow these instructions to get a local copy up and running on your machine.
+
+### Prerequisites
+
+Ensure you have the following installed:
+
+- **Node.js** (v18.x, v20.x, or newer)
+- **npm** (v9.x or newer)
+- **Angular CLI** (optional, or use `npx`):
+  ```bash
+  npm install -g @angular/cli
+  ```
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Pati-Abhishek/taskflowByAbhishek.git
+   cd taskflowByAbhishek
+   ```
+
+2. **Install project dependencies:**
+   ```bash
+   npm install
+   ```
+
+---
+
+## Running the Application
+
+1. **Start the local development server:**
+   ```bash
+   npm start
+   ```
+   *(or run `ng serve`)*
+
+2. Open your browser and navigate to:
+   ```text
+   http://localhost:4200/
+   ```
+
+The application will automatically reload whenever you modify any source files.
+
+---
+
+## Project Structure
+
+```text
+taskflowByAbhishek/
+├── public/                 # Static assets and icons
+├── src/
+│   ├── app/
+│   │   ├── app.config.ts   # Application configuration and providers
+│   │   ├── app.ts          # Core task state, logic, and localStorage handling
+│   │   ├── app.html        # Main application template and layout
+│   │   └── app.css         # Custom styling, badges, and responsive rules
+│   ├── index.html          # Root HTML template
+│   ├── main.ts             # App bootstrap entry point
+│   └── styles.css          # Global styles
+├── angular.json            # Angular CLI configuration
+├── package.json            # Dependencies and scripts
+└── tsconfig.json           # TypeScript configuration
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## Available Scripts
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+In the project directory, you can run:
 
-```bash
-ng generate component component-name
-```
+| Command | Description |
+| :--- | :--- |
+| `npm start` | Runs the app in development mode at `http://localhost:4200` |
+| `npm run build` | Builds the project for production inside the `dist/` directory |
+| `npm test` | Executes unit tests via Karma / Web Test Runner |
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## Contributing
 
-## Building
+Contributions are always welcome! If you'd like to improve TaskFlow:
 
-To build the project run:
+1. Fork the Project (`git checkout -b feature/AmazingFeature`)
+2. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+3. Push to the Branch (`git push origin feature/AmazingFeature`)
+4. Open a Pull Request
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## License
 
-## Running unit tests
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+---
 
-```bash
-ng test
-```
+## Author
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+**Abhishek Pati**  
+- GitHub: [@Pati-Abhishek](https://github.com/Pati-Abhishek)
